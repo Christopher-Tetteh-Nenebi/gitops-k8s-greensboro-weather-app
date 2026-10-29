@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greensboro-weather-app
+  labels:
+    app: greensboro-weather-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: greensbor-weather-app
+  template:
+    metadata:
+      labels:
+        app: greensboro-weather-app
+    spec:
+      containers:
+      - name: greensboro-weather-app
+        image: tetteh2020/greensboro-weather-app:1.0
+        ports:
+        - containerPort: 8080
+        # resources:
+        #   requests:
+        #     memory: "64Mi"
+        #     cpu: "250m"
+        #   limits:
+        #     memory: "128Mi"
+        #     cpu: "500m"
